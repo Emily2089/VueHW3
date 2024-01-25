@@ -124,7 +124,8 @@ createApp({
 
     this.checkAdmin();
 
-    productModal = new bootstrap.Modal(document.querySelector('#productModal'));
-    delProductModal = new bootstrap.Modal(document.querySelector('#delProductModal'))
+    // note：modal 在進行實體化時，第一個參數是 DOM 元素，第二個參數是選項。這邊傳入的是 backdrop 選項，其預設值為 true ，點擊 modal 以外的地方就會關閉 modal。他還可以設成 'static' 和 false 兩種值，若為前者，則不僅能禁止使用者透過點擊 modal 以外的地方來關閉 modal，同時會保留跳出 modal 時讓背景變暗的效果，若薇後者，則只單純禁止使用者透過點擊 modal 以外的地方來關閉 modal。
+    productModal = new bootstrap.Modal(document.querySelector('#productModal'), { backdrop: 'static' });
+    delProductModal = new bootstrap.Modal(document.querySelector('#delProductModal'), { backdrop: 'static' });
   }
 }).mount('#app');
